@@ -82,7 +82,7 @@ export default function MapSearchBar() {
   return (
     <div
       ref={wrapperRef}
-      className="absolute top-3 left-1/2 -translate-x-1/2 z-30 w-full max-w-md px-3 pointer-events-none"
+      className="absolute top-3 left-1/2 -translate-x-1/2 z-30 w-full max-w-xs sm:max-w-md px-3 pointer-events-none"
     >
       <form
         onSubmit={onSubmit}
@@ -90,7 +90,7 @@ export default function MapSearchBar() {
       >
         <div
           className={`
-            flex items-center gap-2 rounded-lg border bg-surface-1/95 backdrop-blur-md shadow-lg
+            flex items-center gap-2 rounded-lg border bg-surface-1 backdrop-blur-md shadow-lg
             transition-all duration-200
             ${open ? 'border-accent-cyan/40 shadow-accent-cyan/10' : 'border-border hover:border-border-light'}
           `}
@@ -139,7 +139,7 @@ export default function MapSearchBar() {
 
         {open && results.length > 0 && (
           <ul
-            className="mt-1.5 rounded-lg border border-border bg-surface-1/98 backdrop-blur-md shadow-xl overflow-hidden max-h-56 overflow-y-auto overscroll-contain"
+            className="mt-1.5 rounded-lg border border-border bg-surface-1 backdrop-blur-md shadow-xl overflow-hidden max-h-56 overflow-y-auto overscroll-contain"
             role="listbox"
           >
             {results.map(place => (

@@ -66,8 +66,8 @@ export default function Toolbar() {
   };
 
   return (
-    <div className="absolute top-3 left-3 z-20 flex flex-col gap-2 max-w-[220px]">
-      <div className="flex flex-col gap-1 p-1 rounded-lg bg-surface-1/95 backdrop-blur-md border border-border shadow-lg">
+    <div className="absolute top-14 sm:top-3 left-2 sm:left-3 z-20 flex flex-col gap-2 max-w-[220px]">
+      <div className="flex flex-col gap-1 p-1 rounded-lg bg-surface-1 backdrop-blur-md border border-border shadow-lg">
         <ToolButton icon={<Home size={15} />} label="Reset view" onClick={resetView} />
         <ToolButton
           icon={locating ? <Loader2 size={15} className="animate-spin" /> : <Navigation size={15} />}

@@ -16,29 +16,29 @@ export default function Header({ onToggleSidebar, sidebarOpen }: HeaderProps) {
   const visibleCount = state.layers.filter(l => l.visible).length;
 
   return (
-    <header className="relative flex items-center justify-between px-4 h-12 bg-surface-1 border-b border-border flex-shrink-0 z-50 scanlines">
+    <header className="relative flex items-center justify-between px-2 sm:px-4 h-12 bg-surface-1 border-b border-border flex-shrink-0 z-50 scanlines">
       {/* Left — Logo + Toggle */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2 sm:gap-3 min-w-0">
         <button
           onClick={onToggleSidebar}
-          className="p-1.5 rounded-md hover:bg-surface-3 text-gray-400 hover:text-gray-200 transition-colors"
+          className="p-1.5 rounded-md hover:bg-surface-3 text-gray-400 hover:text-gray-200 transition-colors flex-shrink-0"
           title="Toggle Sidebar"
         >
           <Menu size={16} />
         </button>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 min-w-0">
           {/* Logo mark */}
-          <div className="relative w-6 h-6">
+          <div className="relative w-6 h-6 flex-shrink-0">
             <div className="absolute inset-0 rounded bg-accent-cyan/20 flex items-center justify-center">
               <Globe size={13} className="text-accent-cyan" />
             </div>
             <div className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-accent-green animate-pulse-slow" />
           </div>
 
-          <div>
+          <div className="hidden xs:block">
             <span
-              className="text-[13px] font-semibold tracking-wide text-white"
+              className="text-[13px] font-semibold tracking-wide text-white whitespace-nowrap"
               style={{ fontFamily: 'var(--font-display)' }}
             >
               GIS RS Explorer
@@ -47,7 +47,7 @@ export default function Header({ onToggleSidebar, sidebarOpen }: HeaderProps) {
         </div>
 
         {/* Breadcrumb */}
-        <div className="hidden md:flex items-center gap-1 text-[11px] text-gray-500 ml-1">
+        <div className="hidden lg:flex items-center gap-1 text-[11px] text-gray-500 ml-1">
           <ChevronRight size={12} />
           <span>Remote Sensing</span>
           <ChevronRight size={12} />
@@ -75,7 +75,7 @@ export default function Header({ onToggleSidebar, sidebarOpen }: HeaderProps) {
             key={tab.id}
             onClick={() => dispatch({ type: 'SET_PANEL', panel: tab.id })}
             className={`
-              hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[11px] font-medium transition-all
+              flex items-center gap-1.5 px-2 sm:px-3 py-1.5 rounded-md text-[11px] font-medium transition-all
               ${state.activePanel === tab.id
                 ? 'bg-accent-cyan/15 text-accent-cyan border border-accent-cyan/30'
                 : 'text-gray-400 hover:text-gray-200 hover:bg-surface-3 border border-transparent'
@@ -83,7 +83,7 @@ export default function Header({ onToggleSidebar, sidebarOpen }: HeaderProps) {
             `}
           >
             {tab.icon}
-            {tab.label}
+            <span className="hidden sm:inline">{tab.label}</span>
           </button>
         ))}
       </div>
